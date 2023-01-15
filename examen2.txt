@@ -26,13 +26,18 @@ Añadir documentos --> curl -H "Content-Type: application/json" -XPOST '127.0.0.
 	{"campoA":"def","campoB":23}
 
 -------------------------------------------------------------
-https://www.elastic.co/guide/en/elasticsearch/reference/current/paginate-search-results.html
 -Buscar 3 resultados --> curl -H "Content-Type: application/json" -XGET '127.0.0.1:9200/alumnos/_search?pretty' -d '{"from":0,"size":3}'
 -Filtrar por nombre --> curl -H "Content-Type: application/json" -XGET '127.0.0.1:9200/alumnos/_search?pretty' -d '{"query":{"match":{"nom":"marco"}}}'
 -Ordenar por edad ascendente --> curl -H "Content-Type: application/json" -XGET '127.0.0.1:9200/alumnos/_search?pretty' -d '{"sort":[{"age":"asc"}}]}'
  //desc
 -Pais X pero no Y ciudad --> curl -H "Content-Type: application/json" -XGET '127.0.0.1:9200/alumnos/_search?pretty' -d '{"query":{"bool":{"must":[{"match":{"nom":"marco"}}],"must_not":[{"match":{"age":"18"}}]}}}'
--Buscar nombre Paco, como Pco --> curl -H "Content-Type: application/json" -XGET '127.0.0.1:9200/nombreIndex/_search?pretty' -d '{"query":{"fuzzy":{"name":"pco"}}}'
+-Buscar nombre Paco, como Pco --> curl -XGET "127.0.0.1:9200/bank/_search?pretty" -H 'Content-Type: application/json' -d '{
+        "query":{
+            "fuzzy":{
+                "city":{"value":"Woyming"}
+            }
+        }
+    }'
 -Más búsquedas:
 	-Filter --> Dentro de un bool
 	-Should --> Dentro de un filter, y dentro de otro bool dentro del filter --> [{}] "Se cumple una u otra"
@@ -53,6 +58,16 @@ https://www.elastic.co/guide/en/elasticsearch/reference/current/paginate-search-
 		- [abc] --> a o b o c
 		- [a-c] --> a o b o c
 		- [^abc] --> cualquiera menos a b o c
+
+paginación --> https://www.elastic.co/guide/en/elasticsearch/reference/current/paginate-search-results.html
+ordenación --> https://www.elastic.co/guide/en/elasticsearch/reference/current/sort-search-results.html
+filtros --> https://www.elastic.co/guide/en/elasticsearch/reference/current/filter-search-results.html
+busqueda difusa --> https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-fuzzy-query.html
+prefijos de búsqueda --> https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-prefix-query.html
+comodines --> https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-wildcard-query.html
+expresiones regulares --> https://www.elastic.co/guide/en/elasticsearch/reference/current/regexp-syntax.html
+			  https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-regexp-query.html
+
 
 ############################################### LOGSTASH ###################################################33
 -mkdir logstash
