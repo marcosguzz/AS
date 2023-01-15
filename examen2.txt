@@ -80,6 +80,8 @@ Añadir documentos --> curl -H "Content-Type: application/json" -XPOST '127.0.0.
 	      - elasticsearch
 	volumes:
 	  data01:
+	  
+	  
 -vim logstash.conf
 	input{
 	  http{
