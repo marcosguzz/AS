@@ -126,3 +126,7 @@ expresiones regulares --> https://www.elastic.co/guide/en/elasticsearch/referenc
 	  https://www.javainuse.com/grok
 -Eliminar datos (dentro de filter)--> mutate{remove_field => ["nombreCampoA","nombreCampoB"]}
 -Codición para no procesar objetos X (dentro de filter) --> if [campoA] == "X" {drop{}} 
+
+-input --> https://www.elastic.co/guide/en/logstash/current/input-plugins.html
+-filter --> https://www.elastic.co/guide/en/logstash/current/filter-plugins.html
+-output --> https://www.elastic.co/guide/en/logstash/current/output-plugins.html
