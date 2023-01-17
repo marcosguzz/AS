@@ -38,6 +38,12 @@ Añadir documentos --> curl -H "Content-Type: application/json" -XPOST '127.0.0.
             }
         }
     }'
+-que empiece o termine por --> curl -H "Content-Type: application/json" -XGET '127.0.0.1:9200/bank/_search?pretty' -d '{
+> "query":{
+> "wildcard":{"lastname":{"value":"g*tes"}}
+> }}'    
+    
+    
 -Más búsquedas:
 	-Filter --> Dentro de un bool
 	-Should --> Dentro de un filter, y dentro de otro bool dentro del filter --> [{}] "Se cumple una u otra"
