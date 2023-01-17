@@ -7,6 +7,7 @@ b) Indexar los datos utilizando una carga en bruto
     curl -H "Content-Type: application/json" -XPUT '127.0.0.1:9200/bank/_bulk' --data-binary @accounts.json
 c) Obtener información "Documentos de un índice"
     curl -XGET 127.0.0.1:9200/bank/_search?pretty
+    
 -Recuperar índices --> curl 127.0.0.1:9200/_cat/indices?v
 -Leer mapping de un índice --> curl -XGET 127.0.0.1:9200/nomIndex/_mapping
 -Nº de docs de un índice --> curl -XGET 127.0.0.1:9200/nombreIndex/_count?pretty
@@ -141,3 +142,10 @@ expresiones regulares --> https://www.elastic.co/guide/en/elasticsearch/referenc
 -input --> https://www.elastic.co/guide/en/logstash/current/input-plugins.html
 -filter --> https://www.elastic.co/guide/en/logstash/current/filter-plugins.html
 -output --> https://www.elastic.co/guide/en/logstash/current/output-plugins.html
+
+
+
+############################final del examen###############
+tar -zcvf pipeline.tar.gz pipeline 
+desde ordenador --> scp marcosguz@35.187.45.213:/home/marcosguz/miEntornoElastic/pipeline.tar.gz .
+
