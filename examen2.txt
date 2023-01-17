@@ -1,7 +1,12 @@
 ################################################### ELASTICSEARCH ##########################################
--Descargar ficheros --> curl -O url.zip
--Descomprimir --> unzip name.zip 
-
+curl -O https://download.elastic.co/demos/kibana/gettingstarted/accounts.zip
+unzip accounts.zip
+a) Crear un índice "bank" e indexar los datos
+    curl -H "Content-Type: application/json" -XPUT 127.0.0.1:9200/bank
+b) Indexar los datos utilizando una carga en bruto 
+    curl -H "Content-Type: application/json" -XPUT '127.0.0.1:9200/bank/_bulk' --data-binary @accounts.json
+c) Obtener información "Documentos de un índice"
+    curl -XGET 127.0.0.1:9200/bank/_search?pretty
 -Recuperar índices --> curl 127.0.0.1:9200/_cat/indices?v
 -Leer mapping de un índice --> curl -XGET 127.0.0.1:9200/nomIndex/_mapping
 -Nº de docs de un índice --> curl -XGET 127.0.0.1:9200/nombreIndex/_count?pretty
