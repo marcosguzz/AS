@@ -345,4 +345,6 @@ output{
 	}
 }
 
+GROK
 
+grok => {"message" => "%{HOSTNAME:IP} - - %{MONTHDAY:DIA}/%{MONTH:MES}/%{YEAR:ANYO}:%{HOUR:HORA}:%{MINUTE:MINUTOS}:%{SECOND:SEGUNDOS} -0400 %{WORD:METODO} %{URI:URL}"}
